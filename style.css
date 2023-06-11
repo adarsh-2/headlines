@@ -60,12 +60,21 @@
     display: none;
 }
 
+.block{
+    display: block;
+}
+
 #search{
     height: 20px;
     width: 50%;
     display: block;
     margin: 10px auto;
     padding: 10px;
+    border-radius: 10px;
+}
+
+#loading{
+    text-align: center;
 }
 
 #s-btn{

@@ -9,9 +9,12 @@ async function fetchnews() {
 
   const search = document.getElementById("search").value;
   // here I am storing the value entered in the text box in "search" variable
+  const loading = document.getElementById("loading")
 
   let searchingNews = search?apiEndPoint+ "&q=" + search : apiEndPoint;
-
+  
+  loading.classList.remove("hidden")
+  
   const response = await fetch(searchingNews, {
     // creating response variable
     // response will go to apiEndPoint to fetch the news
@@ -26,7 +29,7 @@ async function fetchnews() {
     .then(function (data) {
       // data here is response.json
       // data here is JSON object
-
+      loading.classList.add("hidden")
       const news = data.value;
 
       for (let i = 0; i < news.length; i++) {
@@ -73,3 +76,11 @@ function searchFunc() {
     container_div.innerHTML = "";
     fetchnews();
 }
+
+const search = document.getElementById("search");
+
+search.addEventListener("keydown",(e)=>{ // keydown event is fired when a key is pressed
+  if(e.keyCode == 13) // keycode of enter is 13
+  searchFunc()
+})
+
