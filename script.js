@@ -83,4 +83,3 @@ search.addEventListener("keydown",(e)=>{ // keydown event is fired when a key is
   if(e.keyCode == 13) // keycode of enter is 13
   searchFunc()
 })
-
